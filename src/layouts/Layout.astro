@@ -20,16 +20,19 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <div
-      class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+  <body class="relative text-black dark:text-white">
+    <!--  <div
+      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-neutral-100 dark:bg-neutral-950
+    bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+    dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
-    </div>
+    </div> -->
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
 <style is:global>
   :root {
     color-scheme: light dark;
@@ -47,7 +50,7 @@ const { title, description } = Astro.props;
     min-height: 100vh;
     overscroll-behavior: none;
   }
-  /* if animations are disabled */
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
