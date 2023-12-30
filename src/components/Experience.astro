@@ -1,0 +1,20 @@
+---
+import ExperienceItem, {
+  type ExperiencieItemProps,
+} from "./ExperienceItem.astro";
+export interface ExperienciesProps {
+  experiencies: ExperiencieItemProps[];
+}
+interface Props extends ExperienciesProps {}
+const { experiencies } = Astro.props;
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    experiencies.map((experiencie) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
