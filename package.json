@@ -13,7 +13,9 @@
 		"prepare": "husky install",
 		"test": "vitest",
 		"test:ci": "vitest --run",
-		"coverage": "vitest run --coverage"
+		"coverage": "vitest run --coverage",
+		"report": "lighthouse https://devxoje.github.io/porfolio-dev/ --output json --output-path ./report.json",
+		"budget": "bash scripts/postpublish.sh"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.3.4",
@@ -30,6 +32,7 @@
 		"eslint-plugin-astro": "^0.31.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"husky": "^8.0.0",
+		"lighthouse": "^11.4.0",
 		"lint-staged": "^15.2.0",
 		"prettier": "^3.1.1",
 		"prettier-config-standard": "^7.0.0",
