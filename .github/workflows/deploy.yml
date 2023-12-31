@@ -15,6 +15,33 @@ permissions:
   id-token: write
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Lint your code
+        run: npm run lint
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Format your code
+        run: npm run format
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Test your code
+        run: npm run test
   build:
     runs-on: ubuntu-latest
     steps:
