@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+[![Deploy to GitHub Pages](https://github.com/DevXoje/porfolio-dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/DevXoje/porfolio-dev/actions/workflows/deploy.yml)
+
 ```sh
 npm create astro@latest -- --template basics
 ```
