@@ -10,7 +10,7 @@ import Experience, { type ExperienciesProps } from '../components/Experience.ast
 import SectionContainer from '../components/SectionContainer.astro'
 import BriefcaseIcon from '../components/icons/Briefcase.astro'
 import jsonSocial from '../data/social.json'
-import Projects, { type Tag } from '../components/Projects.astro'
+import Projects, { type ProjectProps, type Tag } from '../components/Projects.astro'
 import CodeIcon from '../components/icons/Code.astro'
 import { t, changeLanguage } from 'i18next'
 import jsonTranslations from '../../public/locales/es/translation.json'
@@ -42,7 +42,6 @@ const experiencies = experiencesCollection.map((key, index) => {
 const experienciesProps: ExperienciesProps = {
 	experiencies: experiencies
 }
-
 const TAGS: Record<string, Tag> = {
 	ANGULAR: {
 		name: 'Angular',
@@ -63,7 +62,7 @@ const PROJECTS = [
 		tags: [TAGS.ANGULAR, TAGS.SCSS]
 	}
 ]
-const projectsProps = {
+const projectsProps: ProjectProps = {
 	projects: PROJECTS
 }
 ---

@@ -2,14 +2,16 @@
 import '@fontsource-variable/onest'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import i18next, { t } from 'i18next'
-import { Trans, HeadHrefLangs } from 'astro-i18next/components'
+import i18next from 'i18next'
+import { HeadHrefLangs } from 'astro-i18next/components'
 interface Props {
 	title: string
 	description: string
 }
 
 const { title, description } = Astro.props
+
+//const metaRefresh = `0;url=${import.meta.env.BASE_URL}/${i18next.language}`
 ---
 
 <!doctype html>
@@ -20,6 +22,7 @@ const { title, description } = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/public/xoje-photo.jpg" />
 		<meta name="generator" content={Astro.generator} />
+		<!-- <meta http-equiv="refresh" content={metaRefresh} /> -->
 		<title>{title}</title>
 		<HeadHrefLangs />
 	</head>
@@ -36,11 +39,19 @@ const { title, description } = Astro.props
 		<style is:global>
 			:root {
 				color-scheme: light dark;
+				--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+				--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+				--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.3rem);
+
+				--color-text: hsl(10, 21%, 95%);
+				--color-bg: hsl(12, 5%, 4%);
+				--color-border: black;
 			}
 
 			html {
 				font-family: 'Onest Variable', system-ui, sans-serif;
 				scroll-behavior: smooth;
+				font-size: var(--font-size-base);
 			}
 			html.dark {
 				background-color: #0d0950;

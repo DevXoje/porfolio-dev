@@ -1,41 +1,82 @@
 ---
 import { LanguageSelector } from 'astro-i18next/components'
 import ThemeIcon from './ThemeIcon.astro'
-import { t } from 'i18next'
----
-
-<header
-	class={`
-    flex justify-center items-center
+import i18next, { t } from 'i18next'
+import LanguageIcon from './icons/Language.astro'
+const headerStyles = `
+	flex justify-center items-center
     mx-auto
     py-5
     sticky top-0
     w-full xl:w-[1120px]
     z-10
-  `}
->
-	<nav
-		class={`
-      border border-black rounded-full
+`
+const navStyle = `
+	  border border-black rounded-full
       px-3 py-1
       flex flex-row items-center
       bg-neutral-200 dark:bg-black/50
       backdrop-blur-2xl
-    `}
-	>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#experience"
-			>{t('HEADER.NAVIGATION.EXPERIENCE')}</a
-		>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#projects"
-			>{t('HEADER.NAVIGATION.PROJECTS')}</a
-		>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#sobre-mi"
-			>{t('HEADER.NAVIGATION.ABOUTME')}</a
-		>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#contacto"
-			>{t('HEADER.NAVIGATION.CONTACT')}</a
-		>
+`
+const linkStyle = `
+  rounded-full px-3 transition hover:bg-white/10
+`
+---
+
+<header class={headerStyles}>
+	<nav class={navStyle}>
+		<a class={linkStyle} href="#experience">{t('HEADER.NAVIGATION.EXPERIENCE')}</a>
+		<a class={linkStyle} href="#projects">{t('HEADER.NAVIGATION.PROJECTS')}</a>
+		<a class={linkStyle} href="#about-me">{t('HEADER.NAVIGATION.ABOUTME')}</a>
+		<a class={linkStyle} href="#contact">{t('HEADER.NAVIGATION.CONTACT')}</a>
 	</nav>
-	<ThemeIcon />
-	<LanguageSelector class="my-select-class" />
+	<div class="extra-controls">
+		{
+			i18next.languages.length > 1 && (
+				<>
+					<span class="languages">
+						<LanguageIcon class="languages__icon z-20" />
+						<LanguageSelector
+							showFlag={false}
+							class={`${linkStyle} ${navStyle} languages__selector`}
+						/>
+					</span>
+				</>
+			)
+		}
+		<ThemeIcon />
+	</div>
 </header>
+
+<style>
+	.extra-controls {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-left: 1rem;
+		position: absolute;
+		right: 0;
+		gap: 20px;
+	}
+	.languages {
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.languages__icon {
+			position: absolute;
+			left: 8px;
+		}
+		.languages__selector {
+			padding-left: 40px !important;
+			appearance: none;
+			padding: 0.4em 0.6em;
+		}
+
+		.languages__selector:is(:hover, :focus-within) {
+		}
+	}
+
+	.languages:is(:hover, :focus-within) {
+	}
+</style>

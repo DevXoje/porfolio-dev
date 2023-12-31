@@ -2,12 +2,14 @@
 import English from './icons/English.astro'
 import Spanish from './icons/Spanish.astro'
 import i18next from 'i18next'
+console.log(i18next.language)
+const isEsp = i18next.language === 'es'
 ---
 
 <button id="languageToggle">
-	{i18next.language === 'es' ? <English class="size-6" /> : <Spanish />}
+	{isEsp ? <Spanish /> : <English class="size-6" />}
 </button>
-
+<!-- 
 <script is:inline>
 	//check if the user has a language preference
 	const userLang = navigator.language || navigator.userLanguage
@@ -29,4 +31,4 @@ import i18next from 'i18next'
 		}
 	}
 	button.addEventListener('click', () => toggleLenguage())
-</script>
+</script> -->
