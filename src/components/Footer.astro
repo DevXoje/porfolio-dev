@@ -1,3 +1,7 @@
+---
+import { t } from 'i18next'
+---
+
 <footer
 	class="m-4 mx-auto mb-10 w-full rounded-lg bg-black/5 shadow backdrop-blur-lg xl:w-[1120px] dark:bg-black/20"
 >
@@ -8,10 +12,10 @@
     </span> -->
 		<ul class="mt-3 flex flex-wrap items-center text-sm font-medium sm:mt-0 dark:text-white/90">
 			<li>
-				<a href="#" class="me-4 hover:underline md:me-6">Sobre mí</a>
+				<a href="#" class="me-4 hover:underline md:me-6">{t('FOOTER.ABOUTME')}</a>
 			</li>
 			<li>
-				<a href="#" class="hover:underline">Contacto</a>
+				<a href="#" class="hover:underline">{t('FOOTER.CONTACT')}</a>
 			</li>
 		</ul>
 	</div>

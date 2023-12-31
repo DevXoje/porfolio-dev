@@ -1,32 +1,25 @@
 ---
-import Angular from './icons/Angular.astro'
-import Scss from './icons/Scss.astro'
-
-const TAGS = {
-	ANGULAR: {
-		name: 'Angular',
-		class: 'bg-black text-white',
-		icon: Angular
-	},
-	SCSS: {
-		name: 'SCSS',
-		class: 'bg-[#003159] text-white',
-		icon: Scss
-	}
+export interface ProjectProps {
+	projects: Project[]
 }
-const PROJECTS = [
-	{
-		title: 'The Shop - Portal to buy various products',
-		description:
-			'Created from scratch with Angular, SCSS and Firebase. It has a login system, shopping cart, payment gateway and more.',
-		image: 'https://via.placeholder.com/300x200?text=incoming',
-		tags: [TAGS.ANGULAR, TAGS.SCSS]
-	}
-]
+export interface Project {
+	image: string
+	title: string
+	description: string
+	tags: Tag[]
+}
+export interface Tag {
+	name: string
+	class: string
+	icon: (_props: Record<string, any>) => any
+}
+
+interface Props extends ProjectProps {}
+const { projects } = Astro.props
 ---
 
 {
-	PROJECTS.map(({ image, title, description, tags }) => (
+	projects.map(({ image, title, description, tags }) => (
 		<article>
 			<h3 class="mb-2 text-2xl font-semibold text-yellow-800 dark:text-yellow-200">{title}</h3>
 			<p class="mb-4 text-pretty text-lg">{description}</p>

@@ -9,37 +9,73 @@ import MailIcon from '../components/icons/Mail.astro'
 import Experience, { type ExperienciesProps } from '../components/Experience.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import BriefcaseIcon from '../components/icons/Briefcase.astro'
-import jsonMetadata from '../data/metadata.json'
 import jsonSocial from '../data/social.json'
-import jsonExperiencie from '../data/experiencie.json'
-import Projects from '../components/Projects.astro'
+import Projects, { type Tag } from '../components/Projects.astro'
 import CodeIcon from '../components/icons/Code.astro'
-const metadata = jsonMetadata
-const title = 'Hey, Soy Jose Vilches'
+import { t, changeLanguage } from 'i18next'
+import jsonTranslations from '../../public/locales/es/translation.json'
+import { type ExperiencieItemProps } from '../components/ExperienceItem.astro'
+import Angular from '../components/icons/Angular.astro'
+import Scss from '../components/icons/Scss.astro'
+
+changeLanguage('es')
+
 const badge = {
-	text: 'Contactame', //'Disponible para trabajar',
+	text: t('BADGE.CONTACT'),
 	href: 'https://www.linkedin.com/in/jose-vilches-sanchez/'
 }
-const description = [
-	'Entusiasta de la tecnologia.',
-	'Desarrollador de Software desde hace un Año.',
-	'De Benidorm, España.',
-	'Me especializo en el desarrollo de aplicaciones web.'
-]
+const descriptionCollection = jsonTranslations.WELCOME.DESCRIPTION
+const experiencesCollection = jsonTranslations.EXPERIENCES.ITEMS
+const description = descriptionCollection.map((key, index) => t('WELCOME.DESCRIPTION.' + index))
 const social = jsonSocial
-const props: ExperienciesProps = {
-	experiencies: jsonExperiencie
+const experiencies = experiencesCollection.map((key, index) => {
+	const experiencie: ExperiencieItemProps = {
+		title: t(`EXPERIENCES.ITEMS.${index}.TITLE`),
+		description: t(`EXPERIENCES.ITEMS.${index}.DESCRIPTION`),
+		date: t(`EXPERIENCES.ITEMS.${index}.DATE`)
+	}
+	if (key.LINK) {
+		experiencie.link = key.LINK
+	}
+	return experiencie
+})
+const experienciesProps: ExperienciesProps = {
+	experiencies: experiencies
+}
+
+const TAGS: Record<string, Tag> = {
+	ANGULAR: {
+		name: 'Angular',
+		class: 'bg-black text-white',
+		icon: Angular
+	},
+	SCSS: {
+		name: 'SCSS',
+		class: 'bg-[#003159] text-white',
+		icon: Scss
+	}
+}
+const PROJECTS = [
+	{
+		title: t('PROJECTS.ITEMS.0.TITLE'),
+		description: t('PROJECTS.ITEMS.0.DESCRIPTION'),
+		image: 'https://via.placeholder.com/300x200?text=incoming',
+		tags: [TAGS.ANGULAR, TAGS.SCSS]
+	}
+]
+const projectsProps = {
+	projects: PROJECTS
 }
 ---
 
-<Layout title={metadata.title} description={metadata.description}>
+<Layout title={t('METADATA.TITLE')} description={t('METADATA.DESCRIPTION')}>
 	<main class="px-4">
 		<SectionContainer class="py-44 pb-32">
 			<img class="mb-4 size-12 rounded-full" src="/public/xoje-photo.jpg" alt="xojedev photo" />
 			<h1
 				class="flex flex-row gap-x-4 pb-6 text-3xl font-bold text-gray-900 md:text-4xl lg:pb-10 lg:text-5xl dark:text-white"
 			>
-				{title}
+				{t('WELCOME.TITLE')}
 				<a
 					href={badge.href}
 					target="_blank"
@@ -70,24 +106,23 @@ const props: ExperienciesProps = {
 				</SocialPill>
 			</nav>
 		</SectionContainer>
-
-		<SectionContainer id="experiencia">
+		<SectionContainer id="experience">
 			<h2
 				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
 			>
 				<BriefcaseIcon class="size-7" />
-				Experiencia laboral
+				{t('EXPERIENCES.TITLE')}
 			</h2>
-			<Experience {...props} />
+			<Experience {...experienciesProps} />
 		</SectionContainer>
-		<SectionContainer id="proyectos">
+		<SectionContainer id="projects">
 			<h2
 				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
 			>
 				<CodeIcon class="size-7" />
-				Proyectos
+				{t('PROJECTS.TITLE')}
 			</h2>
-			<Projects />
+			<Projects {...projectsProps} />
 		</SectionContainer>
 	</main>
 </Layout>

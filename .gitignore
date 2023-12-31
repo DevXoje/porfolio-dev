@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # test coverage
 coverage/
+
+# translations
+src/pages/en 

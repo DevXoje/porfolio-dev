@@ -1,5 +1,7 @@
 ---
+import { LanguageSelector } from 'astro-i18next/components'
 import ThemeIcon from './ThemeIcon.astro'
+import { t } from 'i18next'
 ---
 
 <header
@@ -21,10 +23,19 @@ import ThemeIcon from './ThemeIcon.astro'
       backdrop-blur-2xl
     `}
 	>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#experiencia">Experiencia</a>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#proyectos">Proyectos</a>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#sobre-mi">Sobre mí</a>
-		<a class="rounded-full px-3 transition hover:bg-white/10" href="#contacto">Contacto</a>
+		<a class="rounded-full px-3 transition hover:bg-white/10" href="#experience"
+			>{t('HEADER.NAVIGATION.EXPERIENCE')}</a
+		>
+		<a class="rounded-full px-3 transition hover:bg-white/10" href="#projects"
+			>{t('HEADER.NAVIGATION.PROJECTS')}</a
+		>
+		<a class="rounded-full px-3 transition hover:bg-white/10" href="#sobre-mi"
+			>{t('HEADER.NAVIGATION.ABOUTME')}</a
+		>
+		<a class="rounded-full px-3 transition hover:bg-white/10" href="#contacto"
+			>{t('HEADER.NAVIGATION.CONTACT')}</a
+		>
 	</nav>
 	<ThemeIcon />
+	<LanguageSelector class="my-select-class" />
 </header>

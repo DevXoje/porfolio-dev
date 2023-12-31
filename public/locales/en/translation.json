@@ -1,0 +1,60 @@
+{
+	"METADATA": {
+		"TITLE": "Jose Vilches - Software Developer and Programmer Portfolio",
+		"DESCRIPTION": "Contact Jose Vilches, Software Developer and Programmer for your next project. Specialized in web applications development but interested in everything related to technology."
+	},
+	"HEADER": {
+		"NAVIGATION": {
+			"EXPERIENCE": "Experience",
+			"PROJECTS": "Projects",
+			"ABOUTME": "About me",
+			"CONTACT": "Contact"
+		}
+	},
+	"WELCOME": {
+		"TITLE": "Hey, I'm Jose Vilches",
+		"DESCRIPTION": [
+			"Technology enthusiast.",
+			"Software Developer since 2023.",
+			"From Spain, living in Benidorm.",
+			"Specialized in web applications development."
+		]
+	},
+	"BADGE": {
+		"CONTACT": "Contact me"
+	},
+	"EXPERIENCES": {
+		"TITLE": "Experience",
+		"ITEMS": [
+			{
+				"TITLE": "Frontend Developer − AppsSquare",
+				"DESCRIPTION": " Web applications development with Angular. Creation of components and libraries. With orientation to be used in multiple projects.",
+				"DATE": "Present...",
+				"LINK": ""
+			},
+			{
+				"TITLE": "Industrial Automation Systems Integrator − LCS Robotics",
+				"DESCRIPTION": "Development and maintenance of industrial automation systems. With kuka robots. Development of spot welding systems",
+				"DATE": "December 2022"
+			},
+			{
+				"TITLE": "Non-technological jobs − Hospitality",
+				"DESCRIPTION": "",
+				"DATE": "Previously to March 2022"
+			}
+		]
+	},
+	"PROJECTS": {
+		"TITLE": "Projects",
+		"ITEMS": [
+			{
+				"TITLE": "The Shop - Portal to online stores",
+				"DESCRIPTION": "Created from scratch with Angular, SCSS and Firebase. It has a login system, shopping cart, payment gateway and more."
+			}
+		]
+	},
+	"FOOTER": {
+		"ABOUTME": "About me",
+		"CONTACT": "Contact"
+	}
+}

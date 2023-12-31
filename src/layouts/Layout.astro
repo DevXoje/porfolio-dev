@@ -2,6 +2,8 @@
 import '@fontsource-variable/onest'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import i18next, { t } from 'i18next'
+import { Trans, HeadHrefLangs } from 'astro-i18next/components'
 interface Props {
 	title: string
 	description: string
@@ -11,7 +13,7 @@ const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={i18next.language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -19,6 +21,7 @@ const { title, description } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/public/xoje-photo.jpg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<HeadHrefLangs />
 	</head>
 	<body class="relative text-black dark:text-white">
 		<div
@@ -30,43 +33,42 @@ const { title, description } = Astro.props
 		<Header />
 		<slot />
 		<Footer />
+		<style is:global>
+			:root {
+				color-scheme: light dark;
+			}
+
+			html {
+				font-family: 'Onest Variable', system-ui, sans-serif;
+				scroll-behavior: smooth;
+			}
+			html.dark {
+				background-color: #0d0950;
+				color: #fff;
+			}
+
+			.dark .nav-links a {
+				color: #fff;
+			}
+			body {
+				color: rgba(17, 17, 17, 0.9);
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+				overscroll-behavior: none;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+
+			@media (prefers-color-scheme: dark) {
+				body {
+					color: rgba(255, 255, 255, 0.9);
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		color-scheme: light dark;
-	}
-
-	html {
-		font-family: 'Onest Variable', system-ui, sans-serif;
-		scroll-behavior: smooth;
-	}
-	html.dark {
-		background-color: #0d0950;
-		color: #fff;
-	}
-
-	.dark .nav-links a {
-		color: #fff;
-	}
-	body {
-		color: rgba(17, 17, 17, 0.9);
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		overscroll-behavior: none;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		html {
-			scroll-behavior: auto;
-		}
-	}
-
-	@media (prefers-color-scheme: dark) {
-		body {
-			color: rgba(255, 255, 255, 0.9);
-		}
-	}
-</style>
