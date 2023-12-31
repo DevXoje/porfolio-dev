@@ -12,6 +12,7 @@
 		"format": "prettier --write \"src/**/*.{astro,js,ts}\"",
 		"prepare": "husky install",
 		"test": "vitest",
+		"test:ci": "vitest --run",
 		"coverage": "vitest run --coverage"
 	},
 	"dependencies": {
