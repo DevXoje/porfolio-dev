@@ -4,7 +4,8 @@ export default {
 	locales: [
 		'es',
 		{
-			path: '/porfolio-dev/en'
+			path: '/porfolio-dev/en',
+			codes: ['en']
 		}
 	]
 }
