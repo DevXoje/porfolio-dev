@@ -1,55 +1,53 @@
 ---
-import Angular from "./icons/Angular.astro";
-import Scss from "./icons/Scss.astro";
+import Angular from './icons/Angular.astro'
+import Scss from './icons/Scss.astro'
 
 const TAGS = {
-  ANGULAR: {
-    name: "Angular",
-    class: "bg-black text-white",
-    icon: Angular,
-  },
-  SCSS: {
-    name: "SCSS",
-    class: "bg-[#003159] text-white",
-    icon: Scss,
-  },
-};
+	ANGULAR: {
+		name: 'Angular',
+		class: 'bg-black text-white',
+		icon: Angular
+	},
+	SCSS: {
+		name: 'SCSS',
+		class: 'bg-[#003159] text-white',
+		icon: Scss
+	}
+}
 const PROJECTS = [
-  {
-    title: "The Shop - Portal to buy various products",
-    description:
-      "Created from scratch with Angular, SCSS and Firebase. It has a login system, shopping cart, payment gateway and more.",
-    image: "https://via.placeholder.com/300x200?text=incoming",
-    tags: [TAGS.ANGULAR, TAGS.SCSS],
-  },
-];
+	{
+		title: 'The Shop - Portal to buy various products',
+		description:
+			'Created from scratch with Angular, SCSS and Firebase. It has a login system, shopping cart, payment gateway and more.',
+		image: 'https://via.placeholder.com/300x200?text=incoming',
+		tags: [TAGS.ANGULAR, TAGS.SCSS]
+	}
+]
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
-        {title}
-      </h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
-            >
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        loading="lazy"
-        class="rounded shadow-2xl shadow-white/10 aspect-video"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${image}`}
-      />
-    </article>
-  ))
+	PROJECTS.map(({ image, title, description, tags }) => (
+		<article>
+			<h3 class="mb-2 text-2xl font-semibold text-yellow-800 dark:text-yellow-200">{title}</h3>
+			<p class="mb-4 text-pretty text-lg">{description}</p>
+			<ul class="mb-2 flex flex-row gap-x-2">
+				{tags.map((tag) => (
+					<li>
+						<span
+							class={`flex gap-x-2 rounded-full text-xs ${tag.class} border border-white/10 px-2 py-1`}
+						>
+							<tag.icon class="size-4" />
+							{tag.name}
+						</span>
+					</li>
+				))}
+			</ul>
+			<img
+				loading="lazy"
+				class="aspect-video rounded shadow-2xl shadow-white/10"
+				src={image}
+				alt={`Captura de pantalla del proyecto ${image}`}
+			/>
+		</article>
+	))
 }

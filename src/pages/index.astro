@@ -1,109 +1,101 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
-import GithubIcon from "../components/icons/Github.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import SocialPill from "../components/SocialPill.astro";
-import MailIcon from "../components/icons/Mail.astro";
-import Experience, {
-  type ExperienciesProps,
-} from "../components/Experience.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import BriefcaseIcon from "../components/icons/Briefcase.astro";
-import jsonMetadata from "../data/metadata.json";
-import jsonSocial from "../data/social.json";
-import jsonExperiencie from "../data/experiencie.json";
-import Projects from "../components/Projects.astro";
-import CodeIcon from "../components/icons/Code.astro";
-const metadata = jsonMetadata;
-const title = "Hey, Soy Jose Vilches";
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import Badge from '../components/Badge.astro'
+import GithubIcon from '../components/icons/Github.astro'
+import LinkedInIcon from '../components/icons/LinkedIn.astro'
+import SocialPill from '../components/SocialPill.astro'
+import MailIcon from '../components/icons/Mail.astro'
+import Experience, { type ExperienciesProps } from '../components/Experience.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import BriefcaseIcon from '../components/icons/Briefcase.astro'
+import jsonMetadata from '../data/metadata.json'
+import jsonSocial from '../data/social.json'
+import jsonExperiencie from '../data/experiencie.json'
+import Projects from '../components/Projects.astro'
+import CodeIcon from '../components/icons/Code.astro'
+const metadata = jsonMetadata
+const title = 'Hey, Soy Jose Vilches'
 const badge = {
-  text: "Disponible para trabajar",
-  href: "https://www.linkedin.com/in/jose-vilches-sanchez/",
-};
+	text: 'Disponible para trabajar',
+	href: 'https://www.linkedin.com/in/jose-vilches-sanchez/'
+}
 const description = [
-  "Entusiasta de la tecnologia.",
-  "Desarrollador de Software desde hace un Año.",
-  "De Benidorm, España.",
-  "Me especializo en el desarrollo de aplicaciones web.",
-];
-const social = jsonSocial;
+	'Entusiasta de la tecnologia.',
+	'Desarrollador de Software desde hace un Año.',
+	'De Benidorm, España.',
+	'Me especializo en el desarrollo de aplicaciones web.'
+]
+const social = jsonSocial
 const props: ExperienciesProps = {
-  experiencies: jsonExperiencie,
-};
+	experiencies: jsonExperiencie
+}
 ---
 
 <Layout title={metadata.title} description={metadata.description}>
-  <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <img
-        class="rounded-full size-12 mb-4"
-        src="/xoje-photo.jpeg"
-        alt="xojedev photo"
-      />
-      <h1
-        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-      >
-        {title}
-        <a
-          href={badge.href}
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge>{badge.text}</Badge>
-        </a>
-      </h1>
-      <h2
-        class="text-xl lg:text-2xl text-balance max-w-[700px] text-black dark:text-white"
-      >
-        <span> {description[0]}</span>
-        <span class="text-yellow-800 dark:text-yellow-200">
-          {description[1]}
-        </span>
-         .
-        <span class="text-red-800 dark:text-red-200">{description[2]}</span>
-         .
-        <span class="text-sky-800 dark:text-sky-200">
-          {description[3]}
-        </span>
-      </h2>
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill href={social.github.href}>
-          <GithubIcon class="size-4 md:size-6" />
-          {social.github.text}
-        </SocialPill>
-        <SocialPill href={social.linkedin.href}>
-          <LinkedInIcon class="size-4 md:size-6" />
-          {social.linkedin.text}
-        </SocialPill>
-        <SocialPill href={social.linkedin.href}>
-          <MailIcon class="size-4 md:size-6" />
-          {social.email.text}
-        </SocialPill>
-      </nav>
-    </SectionContainer>
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-32">
+			<img class="mb-4 size-12 rounded-full" src="/xoje-photo.jpeg" alt="xojedev photo" />
+			<h1
+				class="flex flex-row gap-x-4 pb-6 text-3xl font-bold text-gray-900 md:text-4xl lg:pb-10 lg:text-5xl dark:text-white"
+			>
+				{title}
+				<a
+					href={badge.href}
+					target="_blank"
+					rel="noopener"
+					class="flex items-center justify-center"
+				>
+					<Badge>{badge.text}</Badge>
+				</a>
+			</h1>
+			<h2 class="max-w-[700px] text-balance text-xl text-black lg:text-2xl dark:text-white">
+				<span> {description[0]}</span>
+				<span class="text-yellow-800 dark:text-yellow-200">
+					{description[1]}
+				</span>
+				.
+				<span class="text-red-800 dark:text-red-200">{description[2]}</span>
+				.
+				<span class="text-sky-800 dark:text-sky-200">
+					{description[3]}
+				</span>
+			</h2>
+			<nav class="mt-8 flex flex-wrap gap-4">
+				<SocialPill href={social.github.href}>
+					<GithubIcon class="size-4 md:size-6" />
+					{social.github.text}
+				</SocialPill>
+				<SocialPill href={social.linkedin.href}>
+					<LinkedInIcon class="size-4 md:size-6" />
+					{social.linkedin.text}
+				</SocialPill>
+				<SocialPill href={social.linkedin.href}>
+					<MailIcon class="size-4 md:size-6" />
+					{social.email.text}
+				</SocialPill>
+			</nav>
+		</SectionContainer>
 
-    <SectionContainer id="experiencia">
-      <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
-      >
-        <BriefcaseIcon class="size-7" />
-         Experiencia laboral
-      </h2>
-      <Experience {...props} />
-    </SectionContainer>
-    <SectionContainer id="proyectos">
-      <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
-      >
-        <CodeIcon class="size-7" />
-         Proyectos
-      </h2>
-      <Projects />
-    </SectionContainer>
-  </main>
+		<SectionContainer id="experiencia">
+			<h2
+				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
+			>
+				<BriefcaseIcon class="size-7" />
+				Experiencia laboral
+			</h2>
+			<Experience {...props} />
+		</SectionContainer>
+		<SectionContainer id="proyectos">
+			<h2
+				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
+			>
+				<CodeIcon class="size-7" />
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>
+	</main>
 </Layout>
- ; ---
+; ---
 
