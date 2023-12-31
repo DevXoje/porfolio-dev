@@ -10,8 +10,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props
-
-//const metaRefresh = `0;url=${import.meta.env.BASE_URL}/${i18next.language}`
 ---
 
 <!doctype html>
@@ -22,7 +20,6 @@ const { title, description } = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/porfolio-dev/xoje-photo.jpg" />
 		<meta name="generator" content={Astro.generator} />
-		<!-- <meta http-equiv="refresh" content={metaRefresh} /> -->
 		<title>{title}</title>
 		<HeadHrefLangs />
 	</head>
