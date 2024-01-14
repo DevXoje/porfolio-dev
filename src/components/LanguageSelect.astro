@@ -1,0 +1,43 @@
+---
+import { LanguageSelector } from 'astro-i18next/components'
+import i18next, { t } from 'i18next'
+import LanguageIcon from './icons/Language.astro'
+import { linkStyle, navStyle } from './Header.astro'
+const showFlag = false
+---
+
+{
+	i18next.languages.length > 1 && (
+		<>
+			<label class="languages">
+				<LanguageIcon class="languages__icon z-20" />
+				<LanguageSelector
+					showFlag={showFlag}
+					class={`${linkStyle} ${navStyle} languages__selector`}
+				/>
+			</label>
+		</>
+	)
+}
+<style>
+	.languages {
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.languages__icon {
+			position: absolute;
+			left: 8px;
+		}
+		.languages__selector {
+			padding-left: 40px !important;
+			appearance: none;
+			padding: 0.4em 0.6em;
+		}
+
+		/* .languages__selector:is(:hover, .languages__selector:focus-within) {
+		} */
+	}
+	/* .languages:is(:hover, :focus-within) {
+	} */
+</style>

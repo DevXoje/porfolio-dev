@@ -3,6 +3,7 @@ import { LanguageSelector } from 'astro-i18next/components'
 import ThemeIcon from './ThemeIcon.astro'
 import i18next, { t } from 'i18next'
 import LanguageIcon from './icons/Language.astro'
+import LanguageSelect from './LanguageSelect.astro'
 const headerStyles = `
 	flex justify-center items-center
     mx-auto
@@ -11,15 +12,21 @@ const headerStyles = `
     w-full xl:w-[1120px]
     z-10
 `
-const navStyle = `
+export const navStyle = `
 	  border border-black rounded-full
       px-3 py-1
       flex flex-row items-center
       bg-neutral-200 dark:bg-black/50
       backdrop-blur-2xl
 `
-const linkStyle = `
+export const linkStyle = `
   rounded-full px-3 transition hover:bg-white/10
+`
+//tailwindcss
+const controlsStyle = `
+	flex flex-row items-center gap-4
+	ml-4
+	absolute right-0
 `
 ---
 
@@ -30,53 +37,10 @@ const linkStyle = `
 		<a class={linkStyle} href="#about-me">{t('HEADER.NAVIGATION.ABOUTME')}</a>
 		<a class={linkStyle} href="#contact">{t('HEADER.NAVIGATION.CONTACT')}</a>
 	</nav>
-	<div class="extra-controls">
-		{
-			i18next.languages.length > 1 && (
-				<>
-					<span class="languages">
-						<LanguageIcon class="languages__icon z-20" />
-						<LanguageSelector
-							showFlag={false}
-							class={`${linkStyle} ${navStyle} languages__selector`}
-						/>
-					</span>
-				</>
-			)
-		}
+	<div class={controlsStyle}>
+		<LanguageSelect />
 		<ThemeIcon />
 	</div>
 </header>
 
-<style>
-	.extra-controls {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		margin-left: 1rem;
-		position: absolute;
-		right: 0;
-		gap: 20px;
-	}
-	.languages {
-		display: flex;
-		align-items: center;
-		position: relative;
-
-		.languages__icon {
-			position: absolute;
-			left: 8px;
-		}
-		.languages__selector {
-			padding-left: 40px !important;
-			appearance: none;
-			padding: 0.4em 0.6em;
-		}
-
-		.languages__selector:is(:hover, :focus-within) {
-		}
-	}
-
-	.languages:is(:hover, :focus-within) {
-	}
-</style>
+<style></style>
