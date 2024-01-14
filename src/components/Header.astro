@@ -1,7 +1,7 @@
 ---
-import ThemeIcon from "./ThemeIcon/ThemeIcon.astro";
-import { t } from "i18next";
-import LanguageSelect from "./LanguageSelect.astro";
+import ThemeIcon from './ThemeIcon/ThemeIcon.astro';
+import { t } from 'i18next';
+import LanguageSelect from './LanguageSelect.astro';
 const headerStyles = `
 	flex justify-center items-center
     mx-auto
@@ -30,11 +30,11 @@ const controlsStyle = `
 <header class={headerStyles}>
 	<nav class={navStyle}>
 		<a class={linkStyle} href="#experience"
-			>{t("HEADER.NAVIGATION.EXPERIENCE")}</a
+			>{t('HEADER.NAVIGATION.EXPERIENCE')}</a
 		>
-		<a class={linkStyle} href="#projects">{t("HEADER.NAVIGATION.PROJECTS")}</a>
-		<a class={linkStyle} href="#about-me">{t("HEADER.NAVIGATION.ABOUTME")}</a>
-		<a class={linkStyle} href="#contact">{t("HEADER.NAVIGATION.CONTACT")}</a>
+		<a class={linkStyle} href="#projects">{t('HEADER.NAVIGATION.PROJECTS')}</a>
+		<a class={linkStyle} href="#about-me">{t('HEADER.NAVIGATION.ABOUTME')}</a>
+		<a class={linkStyle} href="#contact">{t('HEADER.NAVIGATION.CONTACT')}</a>
 	</nav>
 	<div class={controlsStyle}>
 		<LanguageSelect />
