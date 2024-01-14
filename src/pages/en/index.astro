@@ -1,23 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import GithubIcon from "../components/icons/Github.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import SocialPill from "../components/SocialPill.astro";
-import MailIcon from "../components/icons/Mail.astro";
-import Experience, { type ExperienciesProps, } from "../components/Experience.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import BriefcaseIcon from "../components/icons/Briefcase.astro";
-import jsonSocial from "../data/social.json";
-import Projects, { type ProjectProps, type Tag, } from "../components/Projects.astro";
-import CodeIcon from "../components/icons/Code.astro";
+import Layout from "../../layouts/Layout.astro";
+import Badge from "../../components/Badge.astro";
+import GithubIcon from "../../components/icons/Github.astro";
+import LinkedInIcon from "../../components/icons/LinkedIn.astro";
+import SocialPill from "../../components/SocialPill.astro";
+import MailIcon from "../../components/icons/Mail.astro";
+import Experience, { type ExperienciesProps, } from "../../components/Experience.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
+import BriefcaseIcon from "../../components/icons/Briefcase.astro";
+import jsonSocial from "../../data/social.json";
+import Projects, { type ProjectProps, type Tag, } from "../../components/Projects.astro";
+import CodeIcon from "../../components/icons/Code.astro";
 import { t, changeLanguage } from "i18next";
-import jsonTranslations from "../../public/locales/es/translation.json";
-import { type ExperiencieItemProps } from "../components/ExperienceItem.astro";
-import Angular from "../components/icons/Angular.astro";
-import Scss from "../components/icons/Scss.astro";
+import jsonTranslations from "../../../public/locales/es/translation.json";
+import { type ExperiencieItemProps } from "../../components/ExperienceItem.astro";
+import Angular from "../../components/icons/Angular.astro";
+import Scss from "../../components/icons/Scss.astro";
 
-changeLanguage("es");
+changeLanguage("en");
 
 const badge = {
     text: t("BADGE.CONTACT"),
