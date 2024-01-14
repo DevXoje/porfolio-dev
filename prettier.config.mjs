@@ -8,6 +8,7 @@ export default {
       options: {
         parser: "astro",
         useTabs: true,
+        singleQuote: true,
       },
     },
   ],
