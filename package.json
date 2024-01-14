@@ -10,7 +10,7 @@
     "postbuild": "node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": " eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "lint": " eslint --fix \"src/**/*.{js,jsx,ts,tsx,md,mdx,astro}\"",
     "format": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" --config prettier.config.mjs",
     "prepare": "husky install",
     "test": "vitest",

@@ -1,10 +1,12 @@
-import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
-import astroI18next from 'astro-i18next'
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import astroI18next from "astro-i18next";
 
-const base = '/porfolio-dev'
+const base = "/porfolio-dev";
+const site = "https://devxoje.github.io/";
+const integrations = [tailwind(), astroI18next()];
 export default defineConfig({
-	site: 'https://devxoje.github.io/',
-	base: base,
-	integrations: [tailwind(), astroI18next()]
-})
+  site,
+  base,
+  integrations,
+});
