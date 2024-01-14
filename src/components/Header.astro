@@ -1,9 +1,7 @@
 ---
-import { LanguageSelector } from 'astro-i18next/components'
-import ThemeIcon from './ThemeIcon.astro'
-import i18next, { t } from 'i18next'
-import LanguageIcon from './icons/Language.astro'
-import LanguageSelect from './LanguageSelect.astro'
+import ThemeIcon from "./ThemeIcon/ThemeIcon.astro";
+import { t } from "i18next";
+import LanguageSelect from "./LanguageSelect.astro";
 const headerStyles = `
 	flex justify-center items-center
     mx-auto
@@ -11,36 +9,35 @@ const headerStyles = `
     sticky top-0
     w-full xl:w-[1120px]
     z-10
-`
+`;
 export const navStyle = `
 	  border border-black rounded-full
       px-3 py-1
       flex flex-row items-center
       bg-neutral-200 dark:bg-black/50
       backdrop-blur-2xl
-`
+`;
 export const linkStyle = `
   rounded-full px-3 transition hover:bg-white/10
-`
-//tailwindcss
+`;
 const controlsStyle = `
 	flex flex-row items-center gap-4
 	ml-4
 	absolute right-0
-`
+`;
 ---
 
 <header class={headerStyles}>
 	<nav class={navStyle}>
-		<a class={linkStyle} href="#experience">{t('HEADER.NAVIGATION.EXPERIENCE')}</a>
-		<a class={linkStyle} href="#projects">{t('HEADER.NAVIGATION.PROJECTS')}</a>
-		<a class={linkStyle} href="#about-me">{t('HEADER.NAVIGATION.ABOUTME')}</a>
-		<a class={linkStyle} href="#contact">{t('HEADER.NAVIGATION.CONTACT')}</a>
+		<a class={linkStyle} href="#experience"
+			>{t("HEADER.NAVIGATION.EXPERIENCE")}</a
+		>
+		<a class={linkStyle} href="#projects">{t("HEADER.NAVIGATION.PROJECTS")}</a>
+		<a class={linkStyle} href="#about-me">{t("HEADER.NAVIGATION.ABOUTME")}</a>
+		<a class={linkStyle} href="#contact">{t("HEADER.NAVIGATION.CONTACT")}</a>
 	</nav>
 	<div class={controlsStyle}>
 		<LanguageSelect />
 		<ThemeIcon />
 	</div>
 </header>
-
-<style></style>

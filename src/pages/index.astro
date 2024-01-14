@@ -1,72 +1,79 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Badge from '../components/Badge.astro'
-import GithubIcon from '../components/icons/Github.astro'
-import LinkedInIcon from '../components/icons/LinkedIn.astro'
-import SocialPill from '../components/SocialPill.astro'
-import MailIcon from '../components/icons/Mail.astro'
-import Experience, { type ExperienciesProps } from '../components/Experience.astro'
-import SectionContainer from '../components/SectionContainer.astro'
-import BriefcaseIcon from '../components/icons/Briefcase.astro'
-import jsonSocial from '../data/social.json'
-import Projects, { type ProjectProps, type Tag } from '../components/Projects.astro'
-import CodeIcon from '../components/icons/Code.astro'
-import { t, changeLanguage } from 'i18next'
-import jsonTranslations from '../../public/locales/es/translation.json'
-import { type ExperiencieItemProps } from '../components/ExperienceItem.astro'
-import Angular from '../components/icons/Angular.astro'
-import Scss from '../components/icons/Scss.astro'
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import GithubIcon from "../components/icons/Github.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import Experience, {
+	type ExperienciesProps,
+} from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import jsonSocial from "../data/social.json";
+import Projects, {
+	type ProjectProps,
+	type Tag,
+} from "../components/Projects.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import { t, changeLanguage } from "i18next";
+import jsonTranslations from "../../public/locales/es/translation.json";
+import { type ExperiencieItemProps } from "../components/ExperienceItem.astro";
+import Angular from "../components/icons/Angular.astro";
+import Scss from "../components/icons/Scss.astro";
 
-changeLanguage('es')
+changeLanguage("es");
 
 const badge = {
-	text: t('BADGE.CONTACT'),
-	href: 'https://www.linkedin.com/in/jose-vilches-sanchez/'
-}
-const descriptionCollection = jsonTranslations.WELCOME.DESCRIPTION
-const experiencesCollection = jsonTranslations.EXPERIENCES.ITEMS
-const description = descriptionCollection.map((key, index) => t('WELCOME.DESCRIPTION.' + index))
-const social = jsonSocial
+	text: t("BADGE.CONTACT"),
+	href: "https://www.linkedin.com/in/jose-vilches-sanchez/",
+};
+const descriptionCollection = jsonTranslations.WELCOME.DESCRIPTION;
+const experiencesCollection = jsonTranslations.EXPERIENCES.ITEMS;
+const description = descriptionCollection.map((key, index) =>
+	t("WELCOME.DESCRIPTION." + index),
+);
+const social = jsonSocial;
 const experiencies = experiencesCollection.map((key, index) => {
 	const experiencie: ExperiencieItemProps = {
 		title: t(`EXPERIENCES.ITEMS.${index}.TITLE`),
 		description: t(`EXPERIENCES.ITEMS.${index}.DESCRIPTION`),
-		date: t(`EXPERIENCES.ITEMS.${index}.DATE`)
-	}
+		date: t(`EXPERIENCES.ITEMS.${index}.DATE`),
+	};
 	if (key.LINK) {
-		experiencie.link = key.LINK
+		experiencie.link = key.LINK;
 	}
-	return experiencie
-})
+	return experiencie;
+});
 const experienciesProps: ExperienciesProps = {
-	experiencies: experiencies
-}
+	experiencies: experiencies,
+};
 const TAGS: Record<string, Tag> = {
 	ANGULAR: {
-		name: 'Angular',
-		class: 'bg-black text-white',
-		icon: Angular
+		name: "Angular",
+		class: "bg-black text-white",
+		icon: Angular,
 	},
 	SCSS: {
-		name: 'SCSS',
-		class: 'bg-[#003159] text-white',
-		icon: Scss
-	}
-}
+		name: "SCSS",
+		class: "bg-[#003159] text-white",
+		icon: Scss,
+	},
+};
 const PROJECTS = [
 	{
-		title: t('PROJECTS.ITEMS.0.TITLE'),
-		description: t('PROJECTS.ITEMS.0.DESCRIPTION'),
-		image: 'https://via.placeholder.com/300x200?text=incoming',
-		tags: [TAGS.ANGULAR, TAGS.SCSS]
-	}
-]
+		title: t("PROJECTS.ITEMS.0.TITLE"),
+		description: t("PROJECTS.ITEMS.0.DESCRIPTION"),
+		image: "https://via.placeholder.com/300x200?text=incoming",
+		tags: [TAGS.ANGULAR, TAGS.SCSS],
+	},
+];
 const projectsProps: ProjectProps = {
-	projects: PROJECTS
-}
+	projects: PROJECTS,
+};
 ---
 
-<Layout title={t('METADATA.TITLE')} description={t('METADATA.DESCRIPTION')}>
+<Layout title={t("METADATA.TITLE")} description={t("METADATA.DESCRIPTION")}>
 	<main class="px-4">
 		<SectionContainer id="about-me" class="py-44 pb-32">
 			<img
@@ -77,7 +84,7 @@ const projectsProps: ProjectProps = {
 			<h1
 				class="flex flex-row gap-x-4 pb-6 text-3xl font-bold text-gray-900 md:text-4xl lg:pb-10 lg:text-5xl dark:text-white"
 			>
-				{t('WELCOME.TITLE')}
+				{t("WELCOME.TITLE")}
 				<a
 					href={badge.href}
 					target="_blank"
@@ -87,9 +94,13 @@ const projectsProps: ProjectProps = {
 					<Badge>{badge.text}</Badge>
 				</a>
 			</h1>
-			<h2 class="max-w-[700px] text-balance text-xl text-black lg:text-2xl dark:text-white">
+			<h2
+				class="max-w-[700px] text-balance text-xl text-black lg:text-2xl dark:text-white"
+			>
 				<span> {description[0]}</span>
-				<span class="text-yellow-800 dark:text-yellow-200"> {description[1]}</span>
+				<span class="text-yellow-800 dark:text-yellow-200">
+					{description[1]}</span
+				>
 				<span class="text-red-800 dark:text-red-200">{description[2]}</span>
 				<span class="text-sky-800 dark:text-sky-200"> {description[3]}</span>
 			</h2>
@@ -113,7 +124,7 @@ const projectsProps: ProjectProps = {
 				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
 			>
 				<BriefcaseIcon class="size-7" />
-				{t('EXPERIENCES.TITLE')}
+				{t("EXPERIENCES.TITLE")}
 			</h2>
 			<Experience {...experienciesProps} />
 		</SectionContainer>
@@ -122,7 +133,7 @@ const projectsProps: ProjectProps = {
 				class="mb-6 flex items-center gap-x-3 text-3xl font-semibold text-black/80 dark:text-white/80"
 			>
 				<CodeIcon class="size-7" />
-				{t('PROJECTS.TITLE')}
+				{t("PROJECTS.TITLE")}
 			</h2>
 			<Projects {...projectsProps} />
 		</SectionContainer>
