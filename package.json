@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "build:clean": "rimraf dist && rimraf src/pages/en",
+    "postbuild": "node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "lint": " eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
@@ -25,6 +27,9 @@
     "astro": "^4.0.8",
     "astro-i18next": "^1.0.0-beta.21",
     "autoprefixer": "^10.4.16",
+    "globby": "^14.0.0",
+    "html-minifier": "^4.0.0",
+    "jsdom": "^23.2.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"
